@@ -14,3 +14,5 @@ export { default as contextualmenuitem } from "./components/contextualMenuItem.v
 export { default as dropdown } from "./components/dropdown.vue";
 export { default as dropdownitem } from "./components/dropdownitem.vue";
 export { default as label } from "./components/label.vue";
+export { default as choiceFieldGroup } from "./components/choiceFieldGroup.vue";
+export { default as choiceField } from "./components/choiceField.vue";

@@ -60,6 +60,15 @@
             <uiDropdownitem value='duck'>Duck quacking</uiDropdownitem>
             <uiDropdownitem value='cow'>Cow mooing</uiDropdownitem>
         </uiDropdown>
+        <hr>
+        <uiLabel>test</uiLabel>
+        <hr>
+        <uiChoiceFieldGroup v-model='choiceField'>
+            <ui-choice-field :value='1'>Option 1</ui-choice-field>
+            <ui-choice-field :value='2'>Option 2</ui-choice-field>
+            <ui-choice-field :value='3' disabled>Option 3</ui-choice-field>
+            <ui-choice-field :value='4'>Option 4</ui-choice-field>
+        </uiChoiceFieldGroup>
     </div>
 </template>
 
@@ -74,14 +83,17 @@ import {
     spinner,
     messagebar,
     dialog,
-    datepicker,
+    // datepicker,
     contextualmenu,
     contextualmenuitem,
     dropdown,
     dropdownitem,
-    iconAirplane 
+    iconAirplane,
+    label,
+    choiceFieldGroup,
+    choiceField,
 } from "office-ui-fabric-components-vue"
-
+console.log("cfg", choiceFieldGroup);
 export default {
     components : {
         uiButton: button,
@@ -93,18 +105,22 @@ export default {
         uiSpinner : spinner,
         uiMessagebar : messagebar,
         uiDialog : dialog,
-        uiDatepicker : datepicker,
+        // uiDatepicker : datepicker,
         uiContextualMenu : contextualmenu,
         uiContextualMenuItem : contextualmenuitem,
         uiDropdown : dropdown,
         uiDropdownitem : dropdownitem,
+        uiLabel : label,
+        uiChoiceFieldGroup : choiceFieldGroup,
+        uiChoiceField : choiceField,
         iconAirplane
     },
     data : function(){
         return { 
             checkboxChecked : true,
             dialogVisible: false,
-            date : ''
+            date : '',
+            choiceField: 2
         }
     }
 }

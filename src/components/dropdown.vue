@@ -12,7 +12,7 @@ export default {
     extends :  Dropdown
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     @import 'node_modules/office-ui-fabric-core/src/sass/_Fabric.Common';
     @import '../misc/fixThemeVars';
     @import "node_modules/office-ui-fabric-js/src/components/Dropdown/Dropdown";
