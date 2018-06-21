@@ -4,19 +4,10 @@ import { SearchBox as fabricSearchBox } from "office-ui-fabric-js/src/components
 
 export default {
     injectCss,
-    props : {
-        clearOnBlur : { type : Boolean, default : true } 
-    },
     beforeMount(){
         this.$fabric = {
             SearchBox : fabricSearchBox
         };
-    },
-    methods : {
-        clearValue() {
-            if(event.type == "blur" && this.clearOnBlur)
-                this.$emit('input', '');
-        }
     },
     extends :  searchBox
 }

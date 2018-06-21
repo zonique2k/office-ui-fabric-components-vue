@@ -80,7 +80,7 @@ import {
     dropdown,
     dropdownitem,
     iconAirplane 
-} from "bs-ui-fabric-vue"
+} from "office-ui-fabric-components-vue"
 
 export default {
     components : {
