@@ -7,8 +7,11 @@ export default {
     input: 'src/index.js',
 
     output:{
-        format:"es",
-        file : "./dist/bundle.es.js",
+        // format:"es",
+        // file : "./dist/bundle.es.js",
+        format:"iife",
+        file : "./dist/bundle.iife.js",
+        name : "ui"
     },
     plugins: [
         vue({ 
