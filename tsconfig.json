@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "removeComments": true,
+    },
+    "include": [
+        "node_modules/office-ui-fabric-js/src/**/*"
+    ]
+}

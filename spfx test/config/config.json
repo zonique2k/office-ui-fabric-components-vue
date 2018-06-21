@@ -1,0 +1,21 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "component-test-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/componentTest/ComponentTestWebPart.js",
+          "manifest": "./src/webparts/componentTest/ComponentTestWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+      "vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.runtime.min.js",
+      "jquery":"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js",
+      "pickadate":"https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.5/picker.js"
+  },
+  "localizedResources": {
+  }
+}

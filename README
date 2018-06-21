@@ -1,0 +1,2 @@
+installer tsc (npm install typescript -g)
+kør tsc for at compile ui-fabric-js til js
