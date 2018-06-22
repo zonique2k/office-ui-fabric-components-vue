@@ -1,34 +1,27 @@
 /// <reference types="Cypress" />
 
-const mountVue = require('cypress-vue-unit-test');
-import { button, callout } from "../../dist/bundle.es";
-import Vue from 'vue';
+context("Callout", () =>{
+    beforeEach(()=>cy.visit("http://localhost:5000/static/callout"));
 
-context("callout", () =>{
-    var component = {
-        template : `<div>
-            <ui-callout
-                title='All of your favorite people'
-                content='Message body is optional. If help documentation is available, consider adding a link to learn more at the bottom.'>
-                <ui-button slot='actions'>Learn more</ui-button>
-                <ui-button>Open Callout</ui-button>
-            </ui-callout>
-        </div>
-      `,
-        data(){
-            return {
-                btnText : "the text",
-                btnType : "primary"
-            }
-        },
-        components : { uiCallout : callout, uiButton : button }
-    };
-    beforeEach(mountVue(component));
+    it('should be hidden by default', () => {
+        cy.get(".ms-Callout").should('not.be.visible');
 
-    it('should show something', () => {
-        cy.contains("Open Callout")
-          .click();
-        cy.contains("Open Callout")
     });
 
+    it('should be visible when button clicked', () => {
+        cy.contains("Open Callout")
+            .click()
+        cy.get(".ms-Callout").should('be.visible');
+    });
+
+    it('should be dismissed, when clicking outside', () => {
+        cy.contains("Open Callout").click();
+        cy.get("body").click();
+        cy.get(".ms-Callout").should('not.be.visible');
+    });
+
+    it("should match screenshot", ()=>{
+        cy.contains("Open Callout").click()
+        cy.get(".ms-Callout").vrt("callout");
+    })
 });

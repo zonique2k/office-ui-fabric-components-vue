@@ -3,37 +3,51 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonJS from 'rollup-plugin-commonjs';
 import buble from 'rollup-plugin-buble';
 
-export default {
-    input: 'src/index.js',
 
-    output:{
-        // format:"es",
-        // file : "./dist/bundle.es.js",
-        format:"iife",
-        file : "./dist/bundle.iife.js",
-        name : "ui"
+export default [
+    {
+        input: 'src/index.js',
+
+        output:{
+            format:"es",
+            file : "./dist/bundle.esm.js",
+        },
+        plugins: [
+            vue({ 
+                useSpfxThemeLoading : true
+            }),
+            resolve({
+                only : [
+                    "office-ui-fabric-vue", 
+                    "office-ui-fabric-js",
+                ]
+            }),
+            commonJS({}),
+            buble()
+        ],
     },
-    plugins: [
-        vue({ 
-            useSpfxThemeLoading : true
-            // autoStyles: true,
-            // styleToImports: true,
-            // css : function(style, styles, compiler){
-            //     console.log("ohh: " + style);
-            // }
-        }),
-        resolve({
-            // extensions : ['.vue','.sass'],
-            only : [
-                "office-ui-fabric-vue", 
-                //"office-ui-fabric-core", 
-                "office-ui-fabric-js"
-            ]
-        }),
-        commonJS({
-            // extensions : ['.vue','.sass'],
-            // only : ["office-ui-fabric-vue", "office-ui-fabric-core", "office-ui-fabric-js"]
-        }),
-        buble()
-    ],
-};
+    {
+        input: 'src/index.js',
+
+        output:{
+            format:"es",
+            // name : "testing",
+            file : "./dist/bundle.testing.js",
+        },
+        plugins: [
+            vue({ 
+                useSpfxThemeLoading : true
+            }),
+            resolve({
+                only : [
+                    "office-ui-fabric-vue", 
+                    "office-ui-fabric-js",
+                    "@microsoft/load-themed-styles",
+                    "vue"
+                ]
+            }),
+            commonJS({ }),
+            buble()
+        ],
+    }
+];

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window["process"] = {env:{NODE_ENV : "dev"}};
+    </script>
+    <script type="module">
+        import { callout, button } from "http://localhost:5000/dist/bundle.testing.js"
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.esm.js';
+        var app = new Vue({
+            el: '#app',
+            components : {uiButton : button, uiCallout : callout }
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <ui-callout
+            title='All of your favorite people'
+            content='Message body is optional. If help documentation is available, consider adding a link to learn more at the bottom.'>
+            <ui-button slot='actions'>Learn more</ui-button>
+            <ui-button>Open Callout</ui-button>
+        </ui-callout>
+    </div>
+</body>
+</html>

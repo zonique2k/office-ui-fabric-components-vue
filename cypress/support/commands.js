@@ -41,13 +41,14 @@
 Cypress.Commands.add('vrt', { prevSubject: true }, (prevSubject, ssName) => {
     cy.wrap(prevSubject)
         .screenshot(ssName)
-        .then(()=>{
+        .then((mon)=>{
             var ssFile = "./cypress/screenshots/" + ssName + ".png";
             var baseFile = "./cypress/screenshots_base/" + ssName + ".png";
             var diffFile = "./cypress/screenshots_diff/" + ssName + ".png";
             var cmd = ".\\node_modules\\.bin\\pixelmatch \"" + baseFile + "\" \"" + ssFile + "\" \"" + diffFile + "\" 0.1";
             cy.exec(cmd , { failOnNonZeroExit : false}).then((result)=>{
                 var errorPercent = result.stdout.split('error: ')[1].split('%')[0] * 1;
+
                 assert(errorPercent < 0.1, "Visual comparison: '" + ssName + "' are " + errorPercent + "% different");
             });
         })
